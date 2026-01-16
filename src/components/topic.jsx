@@ -9,10 +9,14 @@ const Topic = () => {
   const allTopics = groups.flatMap((group) => group.topics);
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
-  const [activeSubTopic, setActiveSubTopic] = useState(window.location.hash.slice(1) || activeTopic?.subtopics?.[0].slug);
+  const [activeSubTopic, setActiveSubTopic] = useState(activeTopic?.subtopics?.[0].slug);
+console.log(window.location.hash.split('#'));
 
  useEffect(() => {
-    setActiveSubTopic(window.location.hash.slice(1) || subtopics?.[0].slug);
+    if (subtopics?.[0]?.slug) {
+      setActiveSubTopic(subtopics?.[0]?.slug);
+      window.location.hash = subtopics?.[0]?.slug;
+    }
   }, [activeTopic]);
 
   if (!activeTopic) {

@@ -1,12 +1,11 @@
 import { useState } from "react";
-import robotImg from "../assets/robot.png";
 import Hamburger from "../assets/hamburger";
 import gitLab from "../assets/gitLab.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const url = window.location.pathname.split('/');
-
+  
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -33,7 +32,7 @@ export default function Navbar() {
             className={`hover:text-blue-500 ${url[1] === "cheat-sheet" ? "text-blue-500" : ""}`}
             href="/cheat-sheet"
           >
-            Cheat-Sheet
+            Cheat Sheet
           </a>
           <a
             className={`hover:text-blue-500 ${url[1] === "contact-me" ? "text-blue-500" : ""}`}

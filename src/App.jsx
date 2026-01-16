@@ -11,14 +11,14 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage/>}></Route>
-      <Route path="/docs" element={<Layout />}>
-        <Route index element={<Navigate to="/docs/quickstart" replace />} />
-        <Route path=":topicSlug" element={<Topic />} />
+      <Route path="/docs" element={<Layout/>}>
+        <Route index element={<Navigate to="/docs/quickstart"/>} />
+        <Route path=":topicSlug" element={<Topic/>} />
       </Route>
       <Route path="/contact-me" element={<Contactme />}></Route>
       <Route path="/about-me" element={<AboutMe />}></Route>
       <Route path="/cheat-sheet" element={<CheatSheet />}></Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to="/"/>} />
     </Routes>
   );
 }

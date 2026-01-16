@@ -19,17 +19,16 @@ const CheatSheet = () => {
           Everything you need to remember about Git — laid out like a modern developer tool.
         </p>
 
-{/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 auto-rows-[320px] gap-8 grid-flow-dense">
           {data.map((group, index) => {
-            const wide = index === 0 || index === 4 || index==7 || index==8;
-            const tall = index === 3  ; 
+            const wide = index === 0 || index === 4  || index === 8  ||index === 13 ||index === 12;
+            const tall = index === 3 || index === 7 ; 
 
             return (
               <div
                 key={group.slug}
                 className={`
-                  relative rounded-3xl border border-slate-800 
+                   rounded-3xl border border-slate-800 
                   bg-linear-to-br from-slate-700/40 to-slate-950  
                   p-6  transition-all duration-300 hover:scale-103  hover:shadow-blue-md shadow-blue-500
                   ${wide ? "xl:col-span-2" : ""}
@@ -38,33 +37,33 @@ const CheatSheet = () => {
               >
 
                 {/* Header */}
-                <div className="relative flex items-center justify-between mb-4">
+                <div className=" flex items-center justify-between mb-4">
                   <button className="text-xl font-bold tracking-wide hover:cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300" onClick={()=>navigate(`/docs/${group.slug}`)}>
                     {group.title} 
-                    <RightArrow className=""/>
+                    <RightArrow/>
                   </button>
                   <span className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-400">
-                    {group.commands.length}
+                    {group.commands.length}                    
                   </span>
                 </div>
 
                 {/* Commands */}
-                <div className="relative space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin scrollbar-thumb-slate-700">
+                <div className=" space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin">
                   {group.commands.map((cmd) => (
                     <div
                       key={cmd.slug}
                       className="rounded-xl border border-slate-800 bg-slate-950 p-3 hover:border-blue-500/40 transition"
                     >
                       {/* Code */}
-                      <pre className="text-blue-400 font-mono text-sm mb-1 overflow-x-auto scrollbar-ghost-1 bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
+                      <pre className="text-blue-400 text-sm mb-1 overflow-x-auto scrollbar-ghost-1 bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
                         {cmd.code}
-                        <button onClick={()=> navigator.clipboard.writeText(cmd.code)} className="hover:cursor-pointer pl-6 ">
+                        <button onClick={()=> navigator.clipboard.writeText(cmd.code)} className="hover:cursor-pointer pl-6">
                           <Copy height="18" width="18"/>
                         </button>
                       </pre>
 
                       {/* Description */}
-                      <p className="text-slate-400 text-sm leading-snug">
+                      <p className="text-slate-400 text-sm ">
                         {cmd.description}
                       </p>
                     </div>
