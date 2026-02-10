@@ -16,8 +16,8 @@ const Rightsidebar = ({activeSubTopic,setActiveSubTopic,subtopics}) => {
             <button className=" py-0.5 text-base text-left w-full " onClick={()=>handleSubTopicChange({slug: subtopic.slug})}>
               <a href={`#${subtopic.slug}`}  className={
                 activeSubTopic === subtopic.slug
-                  ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 hover:cursor-pointer"
-                  : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 hover:cursor-pointer"
+                  ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 cursor-pointer"
+                  : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 cursor-pointer"
               }>
                 {subtopic.title}
               </a>

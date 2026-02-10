@@ -10,7 +10,6 @@ const Topic = () => {
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
   const [activeSubTopic, setActiveSubTopic] = useState(activeTopic?.subtopics?.[0].slug);
-// console.log(window.location.hash.split('#'));
 
  useEffect(() => {
     if (subtopics?.[0]?.slug) {

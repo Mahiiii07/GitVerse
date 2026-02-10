@@ -86,7 +86,7 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
                       setCopiedStates(prev => ({ ...prev, [subtopic.slug]: false }));
                     }, 2000);
                   }}
-                  className="hover:cursor-pointer  "
+                  className="cursor-pointer  "
                 >
                   {copiedStates[subtopic.slug] ? (
                     <Tick height="18" width="18" />

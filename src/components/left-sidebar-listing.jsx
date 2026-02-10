@@ -26,8 +26,8 @@ const LeftSidebarListing = ({ setIsOpen, groups, activeTopic }) => {
                   <a
                     className={
                       activeTopic?.name === topic.name
-                        ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 hover:cursor-pointer"
-                        : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 hover:cursor-pointer"
+                        ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 cursor-pointer"
+                        : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 cursor-pointer"
                     }
                   >
                     {topic.name}

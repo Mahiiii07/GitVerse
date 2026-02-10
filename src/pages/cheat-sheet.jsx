@@ -9,6 +9,7 @@ import Tick from "@/assets/tick";
 const CheatSheet = () => {
   const navigate = useNavigate();
   const [copiedStates, setCopiedStates] = useState({});
+
   function copyCode(code, slug) {
     navigator.clipboard.writeText(code);
     setCopiedStates(prev => ({ ...prev, [slug]: true }));
@@ -54,9 +55,9 @@ const CheatSheet = () => {
                 `}
               >
                 {/* Header */}
-                <div className=" flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-4">
                   <button
-                    className="text-xl font-bold tracking-wide hover:cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300"
+                    className="text-xl font-bold tracking-wide cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300"
                     onClick={() => navigate(`/docs/${group.slug}`)}
                   >
                     {group.title}
@@ -68,7 +69,7 @@ const CheatSheet = () => {
                 </div>
 
                 {/* Commands */}
-                <div className=" space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin">
+                <div className="space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin">
                   {group.commands.map((cmd) => (
                     <div
                       key={cmd.slug}
@@ -79,7 +80,7 @@ const CheatSheet = () => {
                         {cmd.code}
                         <button
                           onClick={() => copyCode(cmd.code, cmd.slug)}
-                          className="hover:cursor-pointer pl-6"
+                          className="cursor-pointer pl-6"
                         >
                           {copiedStates[cmd.slug] ? (
                             <Tick height="18" width="18" />

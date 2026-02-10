@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-/* @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap'); */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -138,10 +137,8 @@
   } 
   .scrollbar-ghost::-webkit-scrollbar-thumb {
     background-color: rgb(112, 122, 132);
-  /* background-image: linear-gradient(to top, #22c55e, #f5eca9); */
     border-radius: 8px;
   }
-
 
   .scrollbar-ghost-1::-webkit-scrollbar {
     height:4px !important
@@ -150,8 +147,6 @@
     background-color: rgb(112, 122, 132);
     border-radius: 8px;
   }
-
-
 
  .gradient-text {
   color: transparent;

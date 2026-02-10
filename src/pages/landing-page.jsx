@@ -1,28 +1,21 @@
-import React from "react";
-import Navbar from "@/components/navbar";
-import gitLab from "../assets/gitLab.png";
 import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import { useNavigate } from "react-router-dom";
-import Snowfall from "react-snowfall";
+import gitLab from "../assets/gitLab.png";
+import Feature1 from "@/assets/feature1";
+import Feature2 from "@/assets/feature2";
+import Feature3 from "@/assets/feature3";
 
 export default function GitVerseLanding() {
   const navigate = useNavigate();
   return (
     <div className=" bg-slate-950  text-white ">
-      {/* <Snowfall
-        style={{
-         position: 'fixed',
-         width: '100vw',
-         height: '100vh',
-         
-        }}  speed={[1,1]}  radius={[0.1, 2]}
-      /> */}
       <Navbar />
 
       <div className="pt-28 pb-32 px-4 md:px-10 lg:px-24 container mx-auto  grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10  text-xs tracking-wide mb-6">
-            <img src={gitLab} alt="" className="h-6" />
+            <img src={gitLab} alt="gitlab" className="h-6" />
             Built for modern developers
           </div>
 
@@ -40,7 +33,7 @@ export default function GitVerseLanding() {
           </p>
 
           <button
-            className=" mt-12 px-10 py-5  bg-linear-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/60 hover:cursor-pointer hover:-translate-y-1 hover:scale-105 transition-all duration-300  active:scale-95 "
+            className="mt-12 px-10 py-5 bg-linear-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/60 cursor-pointer hover:-translate-y-1 hover:scale-105 transition-all duration-300  active:scale-95 "
             onClick={() => navigate("/docs")}
           >
             Start Learning
@@ -88,19 +81,7 @@ export default function GitVerseLanding() {
           {/* Feature 1 */}
           <div className="group p-8 rounded-3xl bg-slate-900/80 border border-slate-800 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:-translate-y-2 hover:border-blue-500/60 hover:bg-linear-to-r hover:from-blue-500/20 hover:to-cyan-400/20 hover:shadow-[0_20px_60px_rgba(59,130,246,0.35),0_0_25px_rgba(59,130,246,0.25)]">
             <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-linear-to-br from-blue-500 to-cyan-400 shadow-2xl transition-transform duration-300 group-hover:scale-110">
-              <svg
-                className="w-7 h-7 text-white"
-                fill="none"
-                stroke="white"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
+              <Feature1 className={" text-white"} height={36} width={36} />
             </div>
             <h3 className="text-2xl font-semibold mb-3">
               Smooth Topic Navigation
@@ -117,19 +98,7 @@ export default function GitVerseLanding() {
           {/* Feature 2 */}
           <div className="group p-8 rounded-3xl bg-slate-900/80 border border-slate-800 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:-translate-y-2 hover:border-cyan-500/50 hover:bg-linear-to-r hover:from-cyan-400/20 hover:to-purple-500/20 hover:shadow-[0_20px_60px_rgba(34,211,238,0.35),0_0_30px_rgba(168,85,247,0.25)]">
             <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-linear-to-r from-cyan-400 to-purple-400 shadow-2xl shadow-cyan-500/30 transition-transform duration-300 group-hover:scale-110">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="white"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
+              <Feature2 className={" text-white"} height={34} width={34} />
             </div>
             <h3 className="text-2xl font-bold mb-4">Structured Git Learning</h3>
             <p className="text-slate-300 mb-6">
@@ -144,19 +113,7 @@ export default function GitVerseLanding() {
           {/* Feature 3 */}
           <div className="group p-8 rounded-3xl bg-slate-900/80 border border-slate-800 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:-translate-y-2 hover:border-purple-500/50 hover:bg-linear-to-r hover:from-purple-500/20 hover:to-blue-500/20 hover:shadow-[0_20px_60px_rgba(168,85,247,0.35),0_0_30px_rgba(59,130,246,0.25)] md:col-span-2 lg:col-span-1">
             <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-linear-to-r from-purple-400 to-blue-500 shadow-2xl shadow-purple-500/30 transition-transform duration-300 group-hover:scale-110">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                stroke="white"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
+              <Feature3 className={" text-white"} height={34} width={34} />
             </div>
             <h3 className="text-2xl font-bold mb-4">Clean Developer UI</h3>
             <p className="text-slate-300 mb-6">

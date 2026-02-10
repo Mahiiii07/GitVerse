@@ -31,7 +31,7 @@ const Contactme = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you soon.");
+    a
     setFormData({ name: "", email: "", subject: "", message: "" });
     emailjs
       .send(
@@ -49,13 +49,12 @@ const Contactme = () => {
       )
       .then(
         () => {
-          // console.log("SUCCESS! New OTP:", newOtp);
-          alert(`A new OTP has been sent to your email ${formData.email}.`);
+          alert("Thank you for your message! We will get back to you soon.");
           navigate("/docs")
         },
         (error) => {
           console.log("FAILED...", error.text);
-          alert("Failed to resend OTP. Please try again.");
+          alert("Failed to send your message. Please try again.");
         }
       );
   };
@@ -155,7 +154,7 @@ const Contactme = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-700 to-cyan-400 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 active:scale-95 "
+                  className="w-full bg-linear-to-r from-blue-700 to-cyan-400 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 active:scale-95 "
                 >
                   Send Message
                 </button>
@@ -171,7 +170,7 @@ const Contactme = () => {
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center ">
-                      <img src={email} alt="" className="h-6 "/>
+                      <img src={email} alt="email" className="h-6 "/>
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200">Email</h3>
@@ -181,7 +180,7 @@ const Contactme = () => {
 
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center ">
-                      <img src={location} alt="" className="h-6"/>
+                      <img src={location} alt="location" className="h-6"/>
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200">Location</h3>
@@ -193,7 +192,7 @@ const Contactme = () => {
 
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <img src={clock} alt="" className="h-6 ml-0.5"/>
+                      <img src={clock} alt="clock" className="h-6 ml-0.5"/>
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200">
@@ -216,25 +215,25 @@ const Contactme = () => {
                     href="https://www.linkedin.com/in/mahi-gajjar-0801932a2/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={likedIn} alt="" className="h-6"/>
+                    <img src={likedIn} alt="linkedin" className="h-6"/>
                   </a>
                   <a
                     href="https://x.com/MDG0708"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={twitter} alt="" className="h-6"/>
+                    <img src={twitter} alt="x" className="h-6"/>
                   </a>
                   <a
                     href="https://in.pinterest.com/gajjarmahi40/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={pinterest} alt="" className="h-6"/>
+                    <img src={pinterest} alt="pinterest" className="h-6"/>
                   </a>
                   <a
                     href="https://github.com/Mahiiii07"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={github} alt="" className="h-6"/>
+                    <img src={github} alt="github" className="h-6"/>
                   </a>
                 </div>
               </div>

@@ -2387,15 +2387,3 @@ export const rightSidebarData = {
     }
   ]
 };
-
-
-
-// <button
-//   onClick={() => navigate('/docs')}
-//   className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25"
-// >
-//   <span className="relative z-10">Start Learning</span>
-//   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-// </button>
-
-
