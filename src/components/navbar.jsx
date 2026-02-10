@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Hamburger from "../assets/hamburger";
-import gitLab from "../assets/gitLab.png";
+import gitLab from "../assets/gitlab.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
