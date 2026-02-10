@@ -1,28 +1,46 @@
 import Navbar from "@/components/navbar";
-import React from "react";
+import React, { useState } from "react";
 import { data } from "../data/cheatsheet-data";
 import { useNavigate } from "react-router-dom";
-import RightArrow from "../assets/right-arrow"
-import Copy from "../assets/copy"
+import RightArrow from "../assets/right-arrow";
+import Copy from "../assets/copy";
+import Tick from "@/assets/tick";
 
 const CheatSheet = () => {
   const navigate = useNavigate();
+  const [copiedStates, setCopiedStates] = useState({});
+  function copyCode(code, slug) {
+    navigator.clipboard.writeText(code);
+    setCopiedStates(prev => ({ ...prev, [slug]: true }));
+    setTimeout(() => {
+      setCopiedStates(prev => ({ ...prev, [slug]: false }));
+    }, 2000);
+  }
   return (
     <div className="bg-slate-950 text-white">
       <Navbar />
 
-      <div className="max-w-360 mx-auto px-8 pt-28 pb-24">
-        <h1 className="text-6xl font-extrabold mb-4">
-          Git <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">Cheat Sheet</span>
+      <div className="container mx-auto px-4 md:px-10 lg:px-24  pt-28 pb-24">
+        <h1 className="md:text-6xl text-5xl  font-extrabold mb-4">
+          Git{" "}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
+            Cheat Sheet
+          </span>
         </h1>
         <p className="text-slate-400 mb-14 max-w-3xl text-lg">
-          Everything you need to remember about Git — laid out like a modern developer tool.
+          Everything you need to remember about Git — laid out like a modern
+          developer tool.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 auto-rows-[320px] gap-8 grid-flow-dense">
           {data.map((group, index) => {
-            const wide = index === 0 || index === 4  || index === 8  ||index === 13 ||index === 12;
-            const tall = index === 3 || index === 7 ; 
+            const wide =
+              index === 0 ||
+              index === 4 ||
+              index === 8 ||
+              index === 13 ||
+              index === 12;
+            const tall = index === 3 || index === 7;
 
             return (
               <div
@@ -30,20 +48,22 @@ const CheatSheet = () => {
                 className={`
                    rounded-3xl border border-slate-800 
                   bg-linear-to-br from-slate-700/40 to-slate-950  
-                  p-6  transition-all duration-300 hover:scale-103  hover:shadow-blue-md shadow-blue-500
+                  p-6  transition-all duration-300 hover:scale-103  hover:shadow-blue-md shadow-blue-600
                   ${wide ? "xl:col-span-2" : ""}
                   ${tall ? "xl:row-span-2" : ""}
                 `}
               >
-
                 {/* Header */}
                 <div className=" flex items-center justify-between mb-4">
-                  <button className="text-xl font-bold tracking-wide hover:cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300" onClick={()=>navigate(`/docs/${group.slug}`)}>
-                    {group.title} 
-                    <RightArrow/>
+                  <button
+                    className="text-xl font-bold tracking-wide hover:cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300"
+                    onClick={() => navigate(`/docs/${group.slug}`)}
+                  >
+                    {group.title}
+                    <RightArrow />
                   </button>
                   <span className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-400">
-                    {group.commands.length}                    
+                    {group.commands.length}
                   </span>
                 </div>
 
@@ -57,8 +77,15 @@ const CheatSheet = () => {
                       {/* Code */}
                       <pre className="text-blue-400 text-sm mb-1 overflow-x-auto scrollbar-ghost-1 bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
                         {cmd.code}
-                        <button onClick={()=> navigator.clipboard.writeText(cmd.code)} className="hover:cursor-pointer pl-6">
-                          <Copy height="18" width="18"/>
+                        <button
+                          onClick={() => copyCode(cmd.code, cmd.slug)}
+                          className="hover:cursor-pointer pl-6"
+                        >
+                          {copiedStates[cmd.slug] ? (
+                            <Tick height="18" width="18" />
+                          ) : (
+                            <Copy height="18" width="18" />
+                          )}
                         </button>
                       </pre>
 

@@ -1,6 +1,5 @@
 import Layout from "./layout";
 import { Routes, Route, Navigate } from "react-router-dom";
-
 import Topic from "./components/topic";
 import LandingPage from "./pages/landing-page";
 import Contactme from "./pages/contact-me";

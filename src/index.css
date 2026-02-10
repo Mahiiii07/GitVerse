@@ -93,7 +93,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --shadow-blue : 0px 0px 500px 25px ;
-  --shadow-blue-md : 0px 0px 13px 2px ;
+  /* --shadow-blue-lg : 0px 0px  */
+  --shadow-blue-md : 0px 0px 13px 4px ;
   
 }
 

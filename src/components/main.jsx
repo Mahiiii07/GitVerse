@@ -1,9 +1,12 @@
-import { Copy } from "lucide-react";
-import React, { useEffect, useRef } from "react";
+import  Collapsible  from "../assets/collapsible";
+import Copy from "../assets/copy";
+import Tick from "@/assets/tick";
+import React, { useEffect, useRef, useState } from "react";
 
 const Main = ({ activeTopic, setActiveSubTopic }) => {
   const divRefs = useRef([]);
   const observerRef = useRef(null);
+  const [copiedStates, setCopiedStates] = useState({});
 
   useEffect(() => {
     if (observerRef.current) {
@@ -16,7 +19,6 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
 
         if (visibleEntries.length === 0) return;
 
-        // Pick the section closest to top
         const topMostEntry = visibleEntries.sort(
           (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
         )[0];
@@ -40,8 +42,9 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
   }, [activeTopic, setActiveSubTopic]);
 
   return (
-    <main className="max-w-5xl xl:max-w-3xl w-full px-4 pt-10 pb-24 md:px-16 lg:px-24 xl:pr-0 mt-16">
-      <header>
+    <main className="w-full pt-16 ">
+      <div className="px-4 pb-24 md:px-16 lg:px-24 xl:pr-0 lg:mt-10 mt-14 ">
+        <header>
         <div className="text-xs tracking-widest font-semibold uppercase text-gray-400 mb-2">
           {activeTopic?.name}
         </div>
@@ -76,12 +79,20 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
               <div className="flex justify-between">
                 <h3 className="text-lg font-medium text-slate-50 mb-2">Code</h3>
                 <button
-                  onClick={() =>
-                    navigator.clipboard.writeText(subtopic.code.join("\n"))
-                  }
+                  onClick={() => {
+                    navigator.clipboard.writeText(subtopic.code.join("\n"));
+                    setCopiedStates(prev => ({ ...prev, [subtopic.slug]: true }));
+                    setTimeout(() => {
+                      setCopiedStates(prev => ({ ...prev, [subtopic.slug]: false }));
+                    }, 2000);
+                  }}
                   className="hover:cursor-pointer  "
                 >
-                  <Copy height="18" width="18" />
+                  {copiedStates[subtopic.slug] ? (
+                    <Tick height="18" width="18" />
+                  ) : (
+                    <Copy height="18" width="18" />
+                  )}
                 </button>
               </div>
               <pre className="text-slate-300 whitespace-pre-line font-mono text-sm overflow-x-auto">
@@ -91,6 +102,7 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
           )}
         </div>
       ))}
+      </div>
     </main>
   );
 };

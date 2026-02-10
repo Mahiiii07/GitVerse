@@ -6,6 +6,8 @@ import github from "../assets/github.png";
 import twitter from "../assets/twitter.png";
 import email from "../assets/email.png";
 import { useNavigate } from "react-router-dom";
+import about from "../assets/about.png"
+import About from "@/assets/about";
 
 export default function AboutMe() {
   const navigate = useNavigate();
@@ -13,8 +15,8 @@ export default function AboutMe() {
     <div className="bg-slate-950 text-white">
       <Navbar />
 
-      <div className="pt-28 pb-56">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="pt-16 ">
+        <div className="pb-16 px-4 md:px-10 lg:px-24 container mx-auto grid lg:grid-cols-2 gap-16 items-center">
           {/****** Left Content ******/}
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-xs tracking-wide mb-6">
@@ -30,10 +32,7 @@ export default function AboutMe() {
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-xl">
-              A full-stack developer passionate about creating modern web
-              applications. I specialize in React, Python (Django), and
-              cutting-edge technologies to build sleek, user-friendly
-              experiences.
+              I'm a passionate developer with a love for creating innovative solutions. With a strong background in web development, I specialize in building responsive and user-friendly applications. I thrive on challenges and am always eager to learn new technologies to enhance my skills. Let's connect and create something amazing together!
             </p>
 
             <button
@@ -43,6 +42,9 @@ export default function AboutMe() {
               View My Work
             </button>
           </div>
+
+          <img src={about}/>
+          
         </div>
       </div>
       <Footer />
