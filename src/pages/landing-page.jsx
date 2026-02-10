@@ -1,7 +1,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { useNavigate } from "react-router-dom";
-import gitLab from "../assets/gitLab.png";
+import gitLab from "@/assets/gitLab.png";
 import Feature1 from "@/assets/feature1";
 import Feature2 from "@/assets/feature2";
 import Feature3 from "@/assets/feature3";
