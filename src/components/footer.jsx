@@ -1,7 +1,3 @@
-import likedIn from "../assets/linkedin.png"
-import pinterest from "../assets/pinterest.png"
-import github from "../assets/github.png"
-import twitter from "../assets/twitter.png"
 
 export default function Footer() {
   return (

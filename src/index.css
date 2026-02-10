@@ -154,12 +154,6 @@
   background-image: linear-gradient(to left, #22c55e, #f5eca9);
 }
 
- .bg-image{
-  background-image: url('assets/bg-image.png');
-  background-size: cover;
-  background-position: 10px;
-}
-
 @keyframes mySkeleton{
   0% { width:0%;}
   100% { width:100%;}
