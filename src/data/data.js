@@ -2331,8 +2331,6 @@ export const groups = [
   }
 ]
 
-
-
 export const rightSidebarData = {
   "sections": [
     {

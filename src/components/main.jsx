@@ -1,4 +1,3 @@
-import  Collapsible  from "../assets/collapsible";
 import Copy from "../assets/copy";
 import Tick from "@/assets/tick";
 import React, { useEffect, useRef, useState } from "react";
@@ -16,11 +15,10 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-
         if (visibleEntries.length === 0) return;
 
         const topMostEntry = visibleEntries.sort(
-          (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+          (a,b) => a.boundingClientRect.top - b.boundingClientRect.top
         )[0];
 
         const index = topMostEntry.target.dataset.id;
