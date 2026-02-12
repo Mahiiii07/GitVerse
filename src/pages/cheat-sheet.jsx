@@ -12,9 +12,9 @@ const CheatSheet = () => {
 
   function copyCode(code, slug) {
     navigator.clipboard.writeText(code);
-    setCopiedStates(prev => ({ ...prev, [slug]: true }));
+    setCopiedStates((prev) => ({ ...prev, [slug]: true }));
     setTimeout(() => {
-      setCopiedStates(prev => ({ ...prev, [slug]: false }));
+      setCopiedStates((prev) => ({ ...prev, [slug]: false }));
     }, 2000);
   }
   return (
@@ -54,7 +54,6 @@ const CheatSheet = () => {
                   ${tall ? "xl:row-span-2" : ""}
                 `}
               >
-                {/* Header */}
                 <div className="flex items-center justify-between mb-4">
                   <button
                     className="text-xl font-bold tracking-wide cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300"
@@ -68,14 +67,12 @@ const CheatSheet = () => {
                   </span>
                 </div>
 
-                {/* Commands */}
                 <div className="space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin">
                   {group.commands.map((cmd) => (
                     <div
                       key={cmd.slug}
                       className="rounded-xl border border-slate-800 bg-slate-950 p-3 hover:border-blue-500/40 transition"
                     >
-                      {/* Code */}
                       <pre className="text-blue-400 text-sm mb-1 overflow-x-auto scrollbar-ghost-1 bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
                         {cmd.code}
                         <button
@@ -90,7 +87,6 @@ const CheatSheet = () => {
                         </button>
                       </pre>
 
-                      {/* Description */}
                       <p className="text-slate-400 text-sm ">
                         {cmd.description}
                       </p>

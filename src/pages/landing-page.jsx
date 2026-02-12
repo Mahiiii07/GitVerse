@@ -78,7 +78,6 @@ export default function GitVerseLanding() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-          {/* Feature 1 */}
           <div className="group p-8 rounded-3xl bg-slate-900/80 border border-slate-800 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:-translate-y-2 hover:border-blue-500/60 hover:bg-linear-to-r hover:from-blue-500/20 hover:to-cyan-400/20 hover:shadow-[0_20px_60px_rgba(59,130,246,0.35),0_0_25px_rgba(59,130,246,0.25)]">
             <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-linear-to-br from-blue-500 to-cyan-400 shadow-2xl transition-transform duration-300 group-hover:scale-110">
               <Feature1 className={" text-white"} height={36} width={36} />
@@ -95,7 +94,6 @@ export default function GitVerseLanding() {
             </span>
           </div>
 
-          {/* Feature 2 */}
           <div className="group p-8 rounded-3xl bg-slate-900/80 border border-slate-800 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:-translate-y-2 hover:border-cyan-500/50 hover:bg-linear-to-r hover:from-cyan-400/20 hover:to-purple-500/20 hover:shadow-[0_20px_60px_rgba(34,211,238,0.35),0_0_30px_rgba(168,85,247,0.25)]">
             <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-linear-to-r from-cyan-400 to-purple-400 shadow-2xl shadow-cyan-500/30 transition-transform duration-300 group-hover:scale-110">
               <Feature2 className={" text-white"} height={34} width={34} />
@@ -110,7 +108,6 @@ export default function GitVerseLanding() {
             </span>
           </div>
 
-          {/* Feature 3 */}
           <div className="group p-8 rounded-3xl bg-slate-900/80 border border-slate-800 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:-translate-y-2 hover:border-purple-500/50 hover:bg-linear-to-r hover:from-purple-500/20 hover:to-blue-500/20 hover:shadow-[0_20px_60px_rgba(168,85,247,0.35),0_0_30px_rgba(59,130,246,0.25)] md:col-span-2 lg:col-span-1">
             <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-linear-to-r from-purple-400 to-blue-500 shadow-2xl shadow-purple-500/30 transition-transform duration-300 group-hover:scale-110">
               <Feature3 className={" text-white"} height={34} width={34} />
