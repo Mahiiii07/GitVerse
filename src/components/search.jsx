@@ -7,7 +7,10 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
   const [search, setSearch] = useState("");
   const allItems = groups.flatMap((group) => {
     return group.topics.flatMap((topic) => [
-      { name: topic.name, slug: `${topic.slug}#${topic.subtopics?.[0]?.slug || ''}`},
+      {
+        name: topic.name,
+        slug: `${topic.slug}#${topic.subtopics?.[0]?.slug || ""}`,
+      },
       ...(topic.subtopics || []).map((subtopic) => ({
         name: subtopic.title,
         slug: `${topic.slug}#${subtopic.slug}`,
@@ -20,19 +23,17 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
       if (e.key === "Escape") setShowSearch(false);
     };
     window.addEventListener("keydown", handleKeyDown);
-     return () => window.removeEventListener('hashchange', handleKeyDown);
+    return () => window.removeEventListener("hashchange", handleKeyDown);
   }, []);
 
-  function getFilteredItems() {  
-    return allItems?.filter(
-      (item) =>
-        item.name.toLowerCase().includes(search.trim().toLowerCase())    
+  function getFilteredItems() {
+    return allItems?.filter((item) =>
+      item.name.toLowerCase().includes(search.trim().toLowerCase()),
     );
   }
 
-  function handleSearchClick({item}) {
-    window.location.href = `/docs/${item.slug}`
-    console.log(`/docs/${item.slug}`);    
+  function handleSearchClick({ item }) {
+    window.location.href = `/docs/${item.slug}`;
     handleButtonClick();
   }
 
@@ -63,26 +64,27 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
           </button>
         </div>
         <div className="h-[calc(100%-3.5rem)] overflow-y-auto scrollbar-ghost p-2 space-y-1">
-          {search.trim() !== "" ?
+          {search.trim() !== "" ? (
             <>
-            {getFilteredItems().map((item, i) => (
-              <div
-                key={i}
-                className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700"
-                onClick={() => {
-                  handleSearchClick({item});
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <span>{item.name}</span>                
+              {getFilteredItems().map((item, i) => (
+                <div
+                  key={i}
+                  className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700"
+                  onClick={() => {
+                    handleSearchClick({ item });
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <span>{item.name}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-            </> :
+              ))}
+            </>
+          ) : (
             <div className="h-full flex items-center justify-center text-sm lg:text-base">
               <p className=" text-gray-500 ">Type to search in documentation</p>
             </div>
-          }
+          )}
           {getFilteredItems().length === 0 && (
             <div className="h-full flex items-center justify-center">
               <p className=" text-gray-500 ">No results found</p>
