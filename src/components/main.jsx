@@ -19,7 +19,9 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
           ignoreObserverRef.current = false;
           return;
         }
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        const visibleEntries = entries.filter((entry) => {
+          entry.isIntersecting;
+        });
         if (visibleEntries.length === 0) return;
 
         const topMostEntry = visibleEntries.sort(
