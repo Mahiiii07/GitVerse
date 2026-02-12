@@ -7,7 +7,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
   const [search, setSearch] = useState("");
   const allItems = groups.flatMap((group) => {
     return group.topics.flatMap((topic) => [
-      { name: topic.name, slug: `${topic.slug}`},
+      { name: topic.name, slug: `${topic.slug}#${topic.subtopics?.[0]?.slug || ''}`},
       ...(topic.subtopics || []).map((subtopic) => ({
         name: subtopic.title,
         slug: `${topic.slug}#${subtopic.slug}`,
@@ -64,9 +64,9 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
         <div className="h-[calc(100%-3.5rem)] overflow-y-auto scrollbar-ghost p-2 space-y-1">
           {search.trim() !== "" ?
             <>
-            {getFilteredItems().map((item) => (
+            {getFilteredItems().map((item, i) => (
               <div
-                key={item.slug}
+                key={i}
                 className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700"
                 onClick={() => {
                   handleSearchClick({item});
