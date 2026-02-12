@@ -7,7 +7,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
   const [search, setSearch] = useState("");
   const allItems = groups.flatMap((group) => {
     return group.topics.flatMap((topic) => [
-      { name: topic.name, slug: `${topic.slug}`},
+      { name: topic.name, slug: `${topic.slug}#${topic.subtopics?.[0]?.slug || ''}`},
       ...(topic.subtopics || []).map((subtopic) => ({
         name: subtopic.title,
         slug: `${topic.slug}#${subtopic.slug}`,
