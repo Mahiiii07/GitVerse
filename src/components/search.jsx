@@ -20,6 +20,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
       if (e.key === "Escape") setShowSearch(false);
     };
     window.addEventListener("keydown", handleKeyDown);
+     return () => window.removeEventListener('hashchange', handleKeyDown);
   }, []);
 
   function getFilteredItems() {  
