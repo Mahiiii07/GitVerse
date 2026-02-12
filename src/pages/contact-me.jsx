@@ -4,16 +4,15 @@ import Footer from "../components/footer";
 import email from "../assets/email.png";
 import location from "../assets/location.png";
 import clock from "../assets/clock.png";
-import likedIn from "../assets/linkedin.png"
-import pinterest from "../assets/pinterest.png"
-import github from "../assets/github.png"
-import twitter from "../assets/twitter.png"
-import emailjs from '@emailjs/browser';
+import likedIn from "../assets/linkedin.png";
+import pinterest from "../assets/pinterest.png";
+import github from "../assets/github.png";
+import twitter from "../assets/twitter.png";
+import emailjs from "@emailjs/browser";
 import { Link, useNavigate } from "react-router-dom";
 
-
 const Contactme = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,8 +29,6 @@ const Contactme = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    a
     setFormData({ name: "", email: "", subject: "", message: "" });
     emailjs
       .send(
@@ -40,35 +37,33 @@ const Contactme = () => {
         {
           name: formData.name,
           email: formData.email,
-          subject : formData.subject,
-          message : formData.message
+          subject: formData.subject,
+          message: formData.message,
         },
         {
           publicKey: "T-bPmHsYeGMbZfKVf",
-        }
+        },
       )
       .then(
         () => {
           alert("Thank you for your message! We will get back to you soon.");
-          navigate("/docs")
+          navigate("/docs");
         },
         (error) => {
-          console.log("FAILED...", error.text);
           alert("Failed to send your message. Please try again.");
-        }
+        },
       );
   };
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <Navbar />
-      {/*********** Main Div ***********/}
+
       <div className="pt-20 pb-12 px-4 lg:px-14 md:px-10">
         <div className="max-w-4xl mx-auto">
-          {/*********** Title ***********/}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-300">
-              Contact Me  
+              Contact Me
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Have questions about GitVerse? We'd love to hear from you. Send us
@@ -76,9 +71,7 @@ const Contactme = () => {
             </p>
           </div>
 
-          {/*********** Contact us section ***********/}
           <div className="flex flex-col lg:flex-row gap-8">
-            {/*********** Left Side ***********/}
             <div className="bg-gray-900 border lg:w-1/2 border-gray-800 rounded-2xl p-8">
               <h2 className="text-2xl font-semibold mb-6 text-blue-500">
                 Send us a message
@@ -161,7 +154,6 @@ const Contactme = () => {
               </form>
             </div>
 
-            {/*********** Right Side ***********/}
             <div className="space-y-8 lg:w-1/2 ">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
                 <h2 className="text-2xl font-semibold mb-6 text-blue-500">
@@ -170,7 +162,7 @@ const Contactme = () => {
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center ">
-                      <img src={email} alt="email" className="h-6 "/>
+                      <img src={email} alt="email" className="h-6 " />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200">Email</h3>
@@ -180,7 +172,7 @@ const Contactme = () => {
 
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center ">
-                      <img src={location} alt="location" className="h-6"/>
+                      <img src={location} alt="location" className="h-6" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200">Location</h3>
@@ -192,15 +184,13 @@ const Contactme = () => {
 
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <img src={clock} alt="clock" className="h-6 ml-0.5"/>
+                      <img src={clock} alt="clock" className="h-6 ml-0.5" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200">
                         Response Time
                       </h3>
-                      <p className="text-gray-400">
-                        Within 24 hours
-                      </p>
+                      <p className="text-gray-400">Within 24 hours</p>
                     </div>
                   </div>
                 </div>
@@ -215,25 +205,25 @@ const Contactme = () => {
                     to="https://www.linkedin.com/in/mahi-gajjar-0801932a2/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={likedIn} alt="linkedin" className="h-6"/>
+                    <img src={likedIn} alt="linkedin" className="h-6" />
                   </Link>
                   <Link
                     to="https://x.com/MDG0708"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={twitter} alt="x" className="h-6"/>
+                    <img src={twitter} alt="x" className="h-6" />
                   </Link>
                   <Link
                     to="https://in.pinterest.com/gajjarmahi40/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={pinterest} alt="pinterest" className="h-6"/>
+                    <img src={pinterest} alt="pinterest" className="h-6" />
                   </Link>
                   <Link
                     to="https://github.com/Mahiiii07"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
-                    <img src={github} alt="github" className="h-6"/>
+                    <img src={github} alt="github" className="h-6" />
                   </Link>
                 </div>
               </div>
