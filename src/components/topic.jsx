@@ -9,14 +9,30 @@ const Topic = () => {
   const allTopics = groups.flatMap((group) => group.topics);
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
-  const [activeSubTopic, setActiveSubTopic] = useState(activeTopic?.subtopics?.[0].slug);
+  const [activeSubTopic, setActiveSubTopic] = useState(() => {
+    const hash = window.location.hash.slice(1);
+    const matchingSubtopic = subtopics?.find(subtopic => subtopic.slug === hash);
+    return matchingSubtopic ? hash : subtopics?.[0]?.slug || '';
+  });
 
- useEffect(() => {
-    if (subtopics?.[0]?.slug) {
-      setActiveSubTopic(subtopics?.[0]?.slug);
-      window.location.hash = subtopics?.[0]?.slug;
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      const matchingSubtopic = subtopics?.find(subtopic => subtopic.slug === hash);
+      if (matchingSubtopic) {
+        setActiveSubTopic(hash);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [subtopics]);
+
+  useEffect(() => {
+    if (activeSubTopic) {
+      window.location.hash = activeSubTopic;
     }
-  }, [activeTopic]);
+  }, [activeSubTopic]);
 
   if (!activeTopic) {
     return (

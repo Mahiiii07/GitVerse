@@ -29,6 +29,7 @@ export default function Navbar() {
       }
     };
     window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
