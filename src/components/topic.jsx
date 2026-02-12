@@ -31,6 +31,10 @@ const Topic = () => {
   useEffect(() => {
     if (activeSubTopic) {
       window.location.hash = activeSubTopic;
+      const element = document.getElementById(activeSubTopic);
+    if (element) {
+       element.scrollIntoView({ behavior: 'instant' });
+    }
     }
   }, [activeSubTopic]);
 
