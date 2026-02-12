@@ -9,7 +9,7 @@ import pinterest from "../assets/pinterest.png"
 import github from "../assets/github.png"
 import twitter from "../assets/twitter.png"
 import emailjs from '@emailjs/browser';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Contactme = () => {
@@ -211,30 +211,30 @@ const Contactme = () => {
                   Follow me
                 </h2>
                 <div className="flex space-x-4">
-                  <a
-                    href="https://www.linkedin.com/in/mahi-gajjar-0801932a2/"
+                  <Link
+                    to="https://www.linkedin.com/in/mahi-gajjar-0801932a2/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
                     <img src={likedIn} alt="linkedin" className="h-6"/>
-                  </a>
-                  <a
-                    href="https://x.com/MDG0708"
+                  </Link>
+                  <Link
+                    to="https://x.com/MDG0708"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
                     <img src={twitter} alt="x" className="h-6"/>
-                  </a>
-                  <a
-                    href="https://in.pinterest.com/gajjarmahi40/"
+                  </Link>
+                  <Link
+                    to="https://in.pinterest.com/gajjarmahi40/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
                     <img src={pinterest} alt="pinterest" className="h-6"/>
-                  </a>
-                  <a
-                    href="https://github.com/Mahiiii07"
+                  </Link>
+                  <Link
+                    to="https://github.com/Mahiiii07"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
                   >
                     <img src={github} alt="github" className="h-6"/>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

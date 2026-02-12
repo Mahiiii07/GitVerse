@@ -11,7 +11,6 @@ const LeftSidebarMobile = () => {
   const activeGroup = groups.find((group) =>
     group.topics.find((topic) => topic.slug === topicSlug),
   );
-
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleMenu() {

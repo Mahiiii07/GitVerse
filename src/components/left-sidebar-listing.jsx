@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const LeftSidebarListing = ({ setIsOpen, groups, activeTopic }) => {
   const navigate = useNavigate();
@@ -20,18 +21,12 @@ const LeftSidebarListing = ({ setIsOpen, groups, activeTopic }) => {
             {group.topics.map((topic, topicIndex) => (
               <li key={topicIndex}>
                 <button
-                  className=" py-0.5 text-base text-left w-full "
+                  className={`py-0.5 text-base text-left w-full  ${activeTopic?.name === topic.name
+                        ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 cursor-pointer"
+                        : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 cursor-pointer"}`}
                   onClick={() => goToTopic(topic)}
                 >
-                  <a
-                    className={
-                      activeTopic?.name === topic.name
-                        ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 cursor-pointer"
-                        : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 cursor-pointer"
-                    }
-                  >
-                    {topic.name}
-                  </a>
+                  {topic.name}
                 </button>
               </li>
             ))}
