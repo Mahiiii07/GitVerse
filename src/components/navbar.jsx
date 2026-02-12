@@ -10,11 +10,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
-  const { pathname:url} = location; 
+  const { pathname } = location;
+
+  useEffect(() => {
+    document.body.style.overflow = showSearch ? "hidden" : "auto";
+  }, [showSearch]);
 
   function handleButtonClick() {
     setShowSearch(!showSearch);
-    document.body.style.overflow = showSearch ? "auto" : "hidden";
   }
 
   const toggleMenu = () => {
@@ -57,37 +60,42 @@ export default function Navbar() {
             <span className="text-xs text-gray-400">Ctrl K</span>
           </div>
           <Link
-            className={`hover:text-blue-500 ${url[1] === "docs" ? "text-blue-500" : ""}`}
+            className={`hover:text-blue-500 ${pathname[1] === "docs" ? "text-blue-500" : ""}`}
             to="/docs"
           >
             Docs
           </Link>
           <Link
-            className={`hover:text-blue-500 ${url[1] === "cheat-sheet" ? "text-blue-500" : ""}`}
+            className={`hover:text-blue-500 ${pathname[1] === "cheat-sheet" ? "text-blue-500" : ""}`}
             to="/cheat-sheet"
           >
             Cheat Sheet
           </Link>
           <Link
-            className={`hover:text-blue-500 ${url[1] === "contact-me" ? "text-blue-500" : ""}`}
+            className={`hover:text-blue-500 ${pathname[1] === "contact-me" ? "text-blue-500" : ""}`}
             to="/contact-me"
           >
             Contact Me
           </Link>
           <Link
-            className={`hover:text-blue-500 ${url[1] === "about-me" ? "text-blue-500" : ""}`}
+            className={`hover:text-blue-500 ${pathname[1] === "about-me" ? "text-blue-500" : ""}`}
             to="/about-me"
           >
             About Me
           </Link>
         </nav>
 
-        <button
-          className="md:hidden text-gray-100 hover:text-blue-500"
-          onClick={toggleMenu}
-        >
-          <Hamburger />
-        </button>
+        <div className="lg:hidden gap-2 flex items-center">
+          <button className="w-6   rounded-full" onClick={handleButtonClick}>
+            <SearchIcon height="18" width="18" className=" md:hidden" />
+          </button>
+          <button
+            className="md:hidden text-gray-100 hover:text-blue-500"
+            onClick={toggleMenu}
+          >
+            <Hamburger />
+          </button>
+        </div>
       </div>
 
       {showSearch && (
@@ -101,28 +109,28 @@ export default function Navbar() {
         <div className="md:hidden bg-gray-950 border-t border-gray-800">
           <nav className="flex flex-col items-center gap-4 py-4 text-base font-semibold tracking-wide text-gray-100">
             <Link
-              className={`hover:text-blue-500 ${url[1] === "docs" ? "text-blue-500" : ""}`}
+              className={`hover:text-blue-500 ${pathname[1] === "docs" ? "text-blue-500" : ""}`}
               to="/docs"
               onClick={toggleMenu}
             >
               Docs
             </Link>
             <Link
-              className={`hover:text-blue-500 ${url[1] === "cheat-sheet" ? "text-blue-500" : ""}`}
+              className={`hover:text-blue-500 ${pathname[1] === "cheat-sheet" ? "text-blue-500" : ""}`}
               to="/cheat-sheet"
               onClick={toggleMenu}
             >
               Cheat Sheet
             </Link>
             <Link
-              className={`hover:text-blue-500 ${url[1] === "contact-me" ? "text-blue-500" : ""}`}
+              className={`hover:text-blue-500 ${pathname[1] === "contact-me" ? "text-blue-500" : ""}`}
               to="/contact-me"
               onClick={toggleMenu}
             >
               Contact Me
             </Link>
             <Link
-              className={`hover:text-blue-500 ${url[1] === "about-me" ? "text-blue-500" : ""}`}
+              className={`hover:text-blue-500 ${pathname[1] === "about-me" ? "text-blue-500" : ""}`}
               to="/about-me"
               onClick={toggleMenu}
             >

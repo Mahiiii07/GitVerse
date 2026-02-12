@@ -42,10 +42,10 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
       onClick={handleButtonClick}
     >
       <div
-        className="lg:w-2xl  h-72 px-4 py-2 gap-2 rounded-lg  bg-gray-800 back text-slate-100"
+        className="lg:w-2xl w-64 h-72 px-4 py-2 gap-2 rounded-lg  bg-gray-800 back text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex h-8 px-4 py-6 gap-2 items-center border-b border-gray-700">
+        <div className="flex text-sm lg:text-base h-8 px-4 py-6 gap-2 items-center border-b border-gray-700">
           <SearchIcon className={"text-gray-400 "} />
           <input
             type="text"
@@ -53,6 +53,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
             placeholder="Search in docs"
             name="Search"
             className="focus:outline-none w-full"
+            autoFocus
           />
           <button
             className="bg-slate-950/70 px-3 py-1 rounded-lg cursor-pointer"
@@ -78,7 +79,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
               </div>
             ))}
             </> :
-            <div className="h-full flex items-center justify-center">
+            <div className="h-full flex items-center justify-center text-sm lg:text-base">
               <p className=" text-gray-500 ">Type to search in documentation</p>
             </div>
           }
