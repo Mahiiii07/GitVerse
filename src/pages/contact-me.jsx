@@ -58,7 +58,6 @@ const Contactme = () => {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <Navbar />
-
       <div className="pt-20 pb-12 px-4 lg:px-14 md:px-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
