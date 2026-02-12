@@ -64,9 +64,9 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
         <div className="h-[calc(100%-3.5rem)] overflow-y-auto scrollbar-ghost p-2 space-y-1">
           {search.trim() !== "" ?
             <>
-            {getFilteredItems().map((item) => (
+            {getFilteredItems().map((item, i) => (
               <div
-                key={item.slug}
+                key={i}
                 className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-700"
                 onClick={() => {
                   handleSearchClick({item});
