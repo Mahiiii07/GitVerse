@@ -20,7 +20,7 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
           return;
         }
         const visibleEntries = entries.filter((entry) => {
-          entry.isIntersecting;
+          return entry.isIntersecting;
         });
         if (visibleEntries.length === 0) return;
 
