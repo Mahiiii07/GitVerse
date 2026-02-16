@@ -7,8 +7,6 @@ export default function AboutMe() {
   const navigate = useNavigate();
   return (
     <div className="bg-slate-950 text-white">
-      <Navbar />
-
       <div className="pb-16 pt-16 px-4 md:px-10 lg:px-24 container mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-xs tracking-wide mb-6">
@@ -41,8 +39,6 @@ export default function AboutMe() {
 
         <img src={about} />
       </div>
-
-      <Footer />
     </div>
   );
 }

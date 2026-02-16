@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import Collapsible from "../assets/collapsible";
-import { groups } from "../data/data";
-import LeftSidebarListing from "./left-sidebar-listing";
+import Collapsible from "@/assets/collapsible";
+import { groups } from "@/data/data";
+import Listing from "./listing";
 
-const LeftSidebarMobile = () => {
+const Mobile = () => {
   const { topicSlug } = useParams();
   const allTopics = groups.flatMap((group) => group.topics);
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
@@ -32,7 +32,7 @@ const LeftSidebarMobile = () => {
       </div>
       {isOpen && (
         <div className="pt-20 h-dvh w-full overflow-y-auto scrollbar-ghost px-6 bg-slate-950">
-          <LeftSidebarListing
+          <Listing
             setIsOpen={setIsOpen}
             groups={groups}
             activeTopic={activeTopic}
@@ -43,4 +43,4 @@ const LeftSidebarMobile = () => {
   );
 };
 
-export default LeftSidebarMobile;
+export default Mobile;

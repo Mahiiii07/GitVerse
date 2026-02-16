@@ -1,21 +1,31 @@
+//TODO: remove unused imports, correct naming conventions, give meaningfull names
+
 import React, { useEffect, useState } from "react";
 import Main from "./main";
-import Right_sidebar from "./right-sidebar";
+import Right_sidebar from "../../components/right-sidebar";
 import { useParams } from "react-router-dom";
 import { groups } from "@/data/data";
 
-const Topic = () => {
+const Index = () => {
   const { topicSlug } = useParams();
   const allTopics = groups.flatMap((group) => group.topics);
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
-  const [activeSubTopic, setActiveSubTopic] = useState(() => {
-    const hash = window.location.hash.slice(1);
-    const matchingSubtopic = subtopics?.find(
-      (subtopic) => subtopic.slug === hash,
-    );
-    return matchingSubtopic ? hash : subtopics?.[0]?.slug || "";
-  });
+  const [activeSubTopic, setActiveSubTopic] = useState("");
+  const currentHash = window.location.hash.slice(1);
+  const isValidSubtopic =
+    !currentHash || subtopics.some((sub) => sub.slug === currentHash);
+
+  // Set the first subtopic when topic changes
+  useEffect(() => {
+    if (subtopics && subtopics.length > 0) {
+      const hash = window.location.hash.slice(1);
+      const matchingSubtopic = subtopics.find(
+        (subtopic) => subtopic.slug === hash,
+      );
+      setActiveSubTopic(matchingSubtopic ? hash : subtopics[0].slug);
+    }
+  }, [topicSlug, subtopics]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -42,7 +52,7 @@ const Topic = () => {
     }
   }, [activeSubTopic]);
 
-  if (!activeTopic) {
+  if (!activeTopic || !isValidSubtopic) {
     return (
       <main className="max-w-5xl h-screen mx-auto flex items-center justify-center">
         <div className=" flex ">
@@ -69,4 +79,4 @@ const Topic = () => {
   );
 };
 
-export default Topic;
+export default Index;

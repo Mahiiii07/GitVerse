@@ -1,4 +1,4 @@
-import Copy from "../assets/copy";
+import Copy from "@/assets/copy";
 import Tick from "@/assets/tick";
 import React, { useEffect, useRef, useState } from "react";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { rightSidebarData } from "../data/data.js";
+import { rightSidebarData } from "@/data/data.js";
 
 const Rightsidebar = ({ activeSubTopic, setActiveSubTopic, subtopics }) => {
   const handleSubTopicChange = ({ slug }) => {
@@ -7,7 +7,7 @@ const Rightsidebar = ({ activeSubTopic, setActiveSubTopic, subtopics }) => {
   };
 
   return (
-    <aside className="hidden py-7 top-14 xl:block xl:w-2xs xl:flex-none sticky h-[calc(100vh-3.5rem)] overflow-y-auto scrollbar-ghost pl-3">
+    <aside className="hidden py-7 top-14 xl:block xl:w-2xs xl:flex-none sticky h-full overflow-y-auto scrollbar-ghost pl-3">
       <p className="uppercase text-xs tracking-widest font-semibold text-blue-500 mb-3">
         On this page
       </p>
