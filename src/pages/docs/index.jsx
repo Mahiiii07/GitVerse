@@ -1,10 +1,12 @@
+//TODO: remove unused imports, correct naming conventions, give meaningfull names
+
 import React, { useEffect, useState } from "react";
 import Main from "./main";
-import Right_sidebar from "./right-sidebar";
+import Right_sidebar from "../../components/right-sidebar";
 import { useParams } from "react-router-dom";
 import { groups } from "@/data/data";
 
-const Topic = () => {
+const Index = () => {
   const { topicSlug } = useParams();
   const allTopics = groups.flatMap((group) => group.topics);
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
@@ -42,7 +44,7 @@ const Topic = () => {
     }
   }, [activeSubTopic]);
 
-  if (!activeTopic) {
+  if (!activeTopic && activeSubTopic) {
     return (
       <main className="max-w-5xl h-screen mx-auto flex items-center justify-center">
         <div className=" flex ">
@@ -69,4 +71,4 @@ const Topic = () => {
   );
 };
 
-export default Topic;
+export default Index;
