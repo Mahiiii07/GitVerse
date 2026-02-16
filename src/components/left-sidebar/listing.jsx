@@ -19,11 +19,12 @@ const Listing = ({ setIsOpen, groups, activeTopic }) => {
           <ul className="space-y-1 border-l border-gray-800">
             {group.topics.map((topic, topicIndex) => (
               <li key={topicIndex}>
+                {/* TODO: common classes */}
                 <button
-                  className={`py-0.5 text-base text-left w-full  ${
+                  className={`py-0.5 text-base text-left w-full pl-4 -ml-px border-l ${
                     activeTopic?.name === topic.name
-                      ? "font-semibold border-l pl-4 -ml-px border-blue-500 text-blue-500 cursor-pointer"
-                      : "text-slate-300 hover:text-white hover:border-slate-500 border-l pl-4 -ml-px border-slate-800 cursor-pointer"
+                      ? "font-semibold   border-blue-500 text-blue-500 cursor-pointer"
+                      : "text-slate-300 hover:text-white hover:border-slate-500  border-slate-800 cursor-pointer"
                   }`}
                   onClick={() => goToTopic(topic)}
                 >

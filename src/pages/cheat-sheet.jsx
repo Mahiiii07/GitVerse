@@ -1,7 +1,7 @@
 import Tick from "@/assets/tick";
 import Navbar from "@/components/navbar";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Copy from "../assets/copy";
 import RightArrow from "../assets/right-arrow";
 import { data } from "../data/cheatsheet-data";
@@ -53,13 +53,13 @@ const CheatSheet = () => {
                 `}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <button
+                  <Link
                     className="text-xl font-bold tracking-wide cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300"
-                    onClick={() => navigate(`/docs/${group.slug}`)}
+                    to={`/docs/${group.slug}`}
                   >
                     {group.title}
                     <RightArrow />
-                  </button>
+                  </Link>
                   <span className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-400">
                     {group.commands.length}
                   </span>

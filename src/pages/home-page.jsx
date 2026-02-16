@@ -2,7 +2,7 @@ import gitLab from "@/assets/gitlab.png";
 import Feature from "@/components/Feature";
 import Glow from "@/components/glow";
 import features from "@/data/features.js";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function GitVerseLanding() {
   const navigate = useNavigate();
@@ -28,13 +28,12 @@ export default function GitVerseLanding() {
             GitVerse helps you *see* how Git works - branching, merging, and
             many more - through a clean, guided, developer‑first experience.
           </p>
-
-          <button
-            className="mt-12 px-10 py-5 bg-linear-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/60 cursor-pointer hover:-translate-y-1 hover:scale-105 transition-all duration-300  active:scale-95 "
-            onClick={() => navigate("/docs")}
+          <Link
+            className="inline-block mt-12 px-10 py-5 bg-linear-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/60 cursor-pointer hover:-translate-y-1 hover:scale-105 transition-all duration-300  active:scale-95 "
+            to="/docs"
           >
             Start Learning
-          </button>
+          </Link>
         </div>
 
         <Glow />
@@ -56,21 +55,20 @@ export default function GitVerseLanding() {
           ))}
         </div>
       </div>
-
-      <div className="h-screen flex flex-col items-center justify-center   bg-linear-to-r from-blue-900/35 via-blue-600/60 to-blue-900/35 text-center transition-all duration-500 ">
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-6 ">
+      <div className="p-28 flex flex-col items-center justify-center   bg-linear-to-r from-blue-900/35 via-blue-600/60 to-blue-900/35 text-center transition-all duration-500 ">
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-6 ">
           Ready to Master Git?
         </h2>
         <p className="text-lg md:text-xl text-slate-200 mb-12 max-w-2xl mx-auto">
           Jump into GitVerse and explore branching, merging, and collaboration
           visually — all before touching the terminal.
         </p>
-        <button
-          onClick={() => navigate("/docs")}
+        <Link
+          to="/docs"
           className="px-14 py-5 bg-linear-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-2xl shadow-lg hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 active:scale-95 cursor-pointer"
         >
           Get Started
-        </button>
+        </Link>
       </div>
     </div>
   );
