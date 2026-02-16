@@ -1,7 +1,7 @@
 import Layout from "./pages/docs/layout";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/docs/index";
-import LandingPage from "./pages/landing-page";
+import LandingPage from "./pages/home-page";
 import Contactme from "./pages/contact-me";
 import AboutMe from "./pages/about-me";
 import CheatSheet from "./pages/cheat-sheet";
