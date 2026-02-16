@@ -1,5 +1,5 @@
 import React from "react";
-import { rightSidebarData } from "../data/data.js";
+import { rightSidebarData } from "@/data/data.js";
 
 const Rightsidebar = ({ activeSubTopic, setActiveSubTopic, subtopics }) => {
   const handleSubTopicChange = ({ slug }) => {

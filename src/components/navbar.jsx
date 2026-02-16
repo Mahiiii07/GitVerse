@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Hamburger from "../assets/hamburger";
-import gitLab from "../assets/gitlab.png";
+import Hamburger from "@/assets/hamburger";
+import gitLab from "@/assets/gitlab.png";
 import { Link } from "react-router-dom";
 import SearchIcon from "@/assets/search";
 import Search from "./search";
