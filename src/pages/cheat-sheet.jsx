@@ -1,10 +1,10 @@
-import Navbar from "@/components/navbar";
-import React, { useState } from "react";
-import { data } from "../data/cheatsheet-data";
-import { useNavigate } from "react-router-dom";
-import RightArrow from "../assets/right-arrow";
-import Copy from "../assets/copy";
 import Tick from "@/assets/tick";
+import Navbar from "@/components/navbar";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Copy from "../assets/copy";
+import RightArrow from "../assets/right-arrow";
+import { data } from "../data/cheatsheet-data";
 
 const CheatSheet = () => {
   const navigate = useNavigate();
@@ -19,8 +19,6 @@ const CheatSheet = () => {
   }
   return (
     <div className="bg-slate-950 text-white">
-      <Navbar />
-
       <div className="container mx-auto px-4 md:px-10 lg:px-24  pt-28 pb-24">
         <h1 className="md:text-6xl text-5xl  font-extrabold mb-4">
           Git{" "}
@@ -67,7 +65,9 @@ const CheatSheet = () => {
                   </span>
                 </div>
 
-                <div className="space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin">
+                <div
+                  className={`space-y-3 overflow-y-auto scrollbar-ghost ${tall ? "lg:h-145 h-56" : "h-56"} pr-1 scrollbar-thin`}
+                >
                   {group.commands.map((cmd) => (
                     <div
                       key={cmd.slug}

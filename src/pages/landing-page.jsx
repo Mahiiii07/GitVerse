@@ -10,8 +10,6 @@ export default function GitVerseLanding() {
   const navigate = useNavigate();
   return (
     <div className=" bg-slate-950  text-white ">
-      <Navbar />
-
       <div className="pt-28 pb-32 px-4 md:px-10 lg:px-24 container mx-auto  grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10  text-xs tracking-wide mb-6">
@@ -124,7 +122,7 @@ export default function GitVerseLanding() {
         </div>
       </div>
 
-      <div className="  mx-auto px-10 md:py-48 py-16 bg-linear-to-r from-blue-900/35 via-blue-600/60 to-blue-900/35 text-center transition-all duration-500 ">
+      <div className="h-screen flex flex-col items-center justify-center   bg-linear-to-r from-blue-900/35 via-blue-600/60 to-blue-900/35 text-center transition-all duration-500 ">
         <h2 className="text-5xl md:text-6xl font-extrabold mb-6 ">
           Ready to Master Git?
         </h2>
@@ -139,8 +137,6 @@ export default function GitVerseLanding() {
           Get Started
         </button>
       </div>
-
-      <Footer />
     </div>
   );
 }
