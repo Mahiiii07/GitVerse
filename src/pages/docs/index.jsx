@@ -11,13 +11,21 @@ const Index = () => {
   const allTopics = groups.flatMap((group) => group.topics);
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
-  const [activeSubTopic, setActiveSubTopic] = useState(() => {
-    const hash = window.location.hash.slice(1);
-    const matchingSubtopic = subtopics?.find(
-      (subtopic) => subtopic.slug === hash,
-    );
-    return matchingSubtopic ? hash : subtopics?.[0]?.slug || "";
-  });
+  const [activeSubTopic, setActiveSubTopic] = useState("");
+  const currentHash = window.location.hash.slice(1);
+  const isValidSubtopic =
+    !currentHash || subtopics.some((sub) => sub.slug === currentHash);
+
+  // Set the first subtopic when topic changes
+  useEffect(() => {
+    if (subtopics && subtopics.length > 0) {
+      const hash = window.location.hash.slice(1);
+      const matchingSubtopic = subtopics.find(
+        (subtopic) => subtopic.slug === hash,
+      );
+      setActiveSubTopic(matchingSubtopic ? hash : subtopics[0].slug);
+    }
+  }, [topicSlug, subtopics]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -44,7 +52,7 @@ const Index = () => {
     }
   }, [activeSubTopic]);
 
-  if (!activeTopic && activeSubTopic) {
+  if (!activeTopic || !isValidSubtopic) {
     return (
       <main className="max-w-5xl h-screen mx-auto flex items-center justify-center">
         <div className=" flex ">

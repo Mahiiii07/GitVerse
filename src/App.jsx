@@ -6,6 +6,7 @@ import Contactme from "./pages/contact-me";
 import AboutMe from "./pages/about-me";
 import CheatSheet from "./pages/cheat-sheet";
 import MainLayout from "./main-layout";
+import NotFound from "./pages/not-found";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path=":topicSlug" element={<Index />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
