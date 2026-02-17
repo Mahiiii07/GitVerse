@@ -1,13 +1,11 @@
 import Tick from "@/assets/tick";
-import Navbar from "@/components/navbar";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Copy from "../assets/copy";
 import RightArrow from "../assets/right-arrow";
 import { data } from "../data/cheatsheet-data";
 
 const CheatSheet = () => {
-  const navigate = useNavigate();
   const [copiedStates, setCopiedStates] = useState({});
 
   function copyCode(code, slug) {
@@ -21,10 +19,7 @@ const CheatSheet = () => {
     <div className="bg-slate-950 text-white">
       <div className="container mx-auto px-4 md:px-10 lg:px-24  pt-28 pb-24">
         <h1 className="md:text-6xl text-5xl  font-extrabold mb-4">
-          Git{" "}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
-            Cheat Sheet
-          </span>
+          Git <span className="title-gradient title-font">Cheat Sheet</span>
         </h1>
         <p className="text-slate-400 mb-14 max-w-3xl text-lg">
           Everything you need to remember about Git — laid out like a modern
@@ -32,7 +27,7 @@ const CheatSheet = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 auto-rows-[320px] gap-8 grid-flow-dense">
-          {data.map((group, index) => {
+          {data?.map((group, index) => {
             const wide =
               index === 0 ||
               index === 4 ||
@@ -68,7 +63,7 @@ const CheatSheet = () => {
                 <div
                   className={`space-y-3 overflow-y-auto scrollbar-ghost ${tall ? "lg:h-145 h-56" : "h-56"} pr-1 scrollbar-thin`}
                 >
-                  {group.commands.map((cmd) => (
+                  {group?.commands?.map((cmd) => (
                     <div
                       key={cmd.slug}
                       className="rounded-xl border border-slate-800 bg-slate-950 p-3 hover:border-blue-500/40 transition"

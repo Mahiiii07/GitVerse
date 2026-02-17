@@ -1,5 +1,4 @@
 const Feature = ({ feature }) => {
-  console.log(feature);
   const IconComponent = feature.icon;
   return (
     <div

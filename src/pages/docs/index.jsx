@@ -1,10 +1,8 @@
-//TODO: remove unused imports, correct naming conventions, give meaningfull names
-
-import React, { useEffect, useState } from "react";
-import Main from "./main";
-import Right_sidebar from "../../components/right-sidebar";
-import { useParams } from "react-router-dom";
 import { groups } from "@/data/data";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Right_sidebar from "../../components/right-sidebar";
+import Main from "./main";
 
 const Index = () => {
   const { topicSlug } = useParams();
@@ -16,7 +14,6 @@ const Index = () => {
   const isValidSubtopic =
     !currentHash || subtopics.some((sub) => sub.slug === currentHash);
 
-  // Set the first subtopic when topic changes
   useEffect(() => {
     if (subtopics && subtopics.length > 0) {
       const hash = window.location.hash.slice(1);

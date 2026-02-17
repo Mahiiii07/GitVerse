@@ -6,7 +6,7 @@ import SearchIcon from "@/assets/search";
 import Search from "./search";
 import { useLocation } from "react-router-dom";
 
-export default function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
@@ -14,7 +14,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = showSearch ? "hidden" : "auto";
-  }, [showSearch]);
+  }, [showSearch, isOpen]);
 
   function handleButtonClick() {
     setShowSearch(!showSearch);
@@ -141,4 +141,6 @@ export default function Navbar() {
       )}
     </header>
   );
-}
+};
+
+export default Navbar;

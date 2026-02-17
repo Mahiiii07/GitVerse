@@ -6,10 +6,10 @@ import Listing from "./listing";
 
 const Mobile = () => {
   const { topicSlug } = useParams();
-  const allTopics = groups.flatMap((group) => group.topics);
-  const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
-  const activeGroup = groups.find((group) =>
-    group.topics.find((topic) => topic.slug === topicSlug),
+  const allTopics = groups?.flatMap((group) => group.topics);
+  const activeTopic = allTopics?.find((topic) => topic.slug === topicSlug);
+  const activeGroup = groups?.find((group) =>
+    group?.topics?.find((topic) => topic.slug === topicSlug),
   );
   const [isOpen, setIsOpen] = useState(false);
 
