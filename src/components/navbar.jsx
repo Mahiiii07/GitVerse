@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full border-b border-gray-800 bg-gray-950 fixed z-50">
-      <div className="mx-auto flex justify-between items-center px-6 py-2">
+      <div className="mx-auto container flex justify-between items-center px-6 py-2">
         <Link
           className="rounded cursor-pointer text-gray-100 px-2 py-1 text-2xl font-bold tracking-wider gap-2 flex"
           to="/"

@@ -19,7 +19,7 @@ const CheatSheet = () => {
     <div className="bg-slate-950 text-white">
       <div className="container mx-auto px-4 md:px-10 lg:px-24  pt-28 pb-24">
         <h1 className="md:text-6xl text-5xl  font-extrabold mb-4">
-          Git <span className="title-gradient title-font">Cheat Sheet</span>
+          Git <span className="title-gradient">Cheat Sheet</span>
         </h1>
         <p className="text-slate-400 mb-14 max-w-3xl text-lg">
           Everything you need to remember about Git — laid out like a modern

@@ -43,7 +43,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
       onClick={handleButtonClick}
     >
       <div
-        className="lg:w-2xl w-64 h-72 px-4 py-2 gap-2 rounded-lg  bg-gray-800 back text-slate-100"
+        className="lg:w-2xl w-full mx-4 h-72 px-4 py-2 gap-2 rounded-lg  bg-gray-800 back text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex text-sm lg:text-base h-8 px-4 py-6 gap-2 items-center border-b border-gray-700">

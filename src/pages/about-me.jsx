@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 const AboutMe = () => {
   return (
     <div className="bg-slate-950 text-white">
-      <div className="pb-16 pt-12 px-4 md:px-10 lg:px-24 container mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div className="pb-16 pt-32 lg:pt-15 px-4 md:px-10 lg:px-24 container mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-blue-500/10 text-xs tracking-wide mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-blue-500/10 text-xs tracking-wide mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-500"></span>
             Passionate Developer
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold">
             Hi, I'm <br />
-            <span className="title-gradient title-font">Mahi Gajjar</span>
+            <span className="title-gradient ">Mahi Gajjar</span>
           </h1>
 
           <p className="mt-8 mb-12 text-lg md:text-xl text-slate-300 max-w-xl">

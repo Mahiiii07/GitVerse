@@ -9,6 +9,8 @@ const features = [
             "Move seamlessly across topics with smooth scrolling. Active sections stay highlighted so you never lose context.",
         gradient: "hover:from-blue-500/20 hover:to-cyan-400/20",
         iconGradient: "from-blue-500 to-cyan-400",
+        borderGradient: "hover:border-blue-500/60",
+        subTitleGradient: "text-blue-500",
     },
     {
         title: "Structured Git Learning",
@@ -18,6 +20,8 @@ const features = [
             "Learn Git and GitHub through a clear, structured flow. Topics are organized to make complex ideas easy to follow.",
         gradient: "hover:from-cyan-400/20 hover:to-purple-400/20",
         iconGradient: "from-cyan-400 to-purple-400",
+        borderGradient: "hover:border-cyan-400/60",
+        subTitleGradient: "text-cyan-500",
     },
     {
         title: "Clean Developer UI",
@@ -27,6 +31,8 @@ const features = [
             "A modern, responsive interface built for developers. Designed to stay fast, clean, and distraction-free.",
         gradient: "hover:from-purple-500/20 hover:to-blue-500/20",
         iconGradient: "from-purple-400 to-blue-500",
+        borderGradient: "hover:border-purple-400/60",
+        subTitleGradient: "text-purple-500",
     },
 ];
 
