@@ -1,6 +1,6 @@
 import { groups } from "@/data/data";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Right_sidebar from "../../components/right-sidebar";
 import Main from "./main";
 
@@ -10,6 +10,11 @@ const Index = () => {
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
   const [activeSubTopic, setActiveSubTopic] = useState("");
+  const [hash, sethash] = useState("");
+
+  useEffect(() => {
+    sethash(window.location.hash);
+  }, []);
 
   useEffect(() => {
     if (subtopics && subtopics.length > 0) {
@@ -28,7 +33,7 @@ const Index = () => {
         element.scrollIntoView({ behavior: "instant" });
       }
     }
-  }, [activeSubTopic]);
+  }, [hash]);
 
   if (!activeTopic) {
     return (
