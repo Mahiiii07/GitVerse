@@ -14,13 +14,13 @@ const GitVerseLanding = () => {
             Built for modern developers
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold ">
+          <h1 className="title-font font-extrabold ">
             Understand Git.
             <br />
             <span className="title-gradient">Not just commands.</span>
           </h1>
 
-          <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-xl">
+          <p className="mt-8 text-md md:text-xl text-slate-300 max-w-xl">
             GitVerse helps you *see* how Git works - branching, merging, and
             many more - through a clean, guided, developer‑first experience.
           </p>
@@ -35,12 +35,12 @@ const GitVerseLanding = () => {
       <div className="p-16 px-4 md:px-10 lg:px-24 container mx-auto bg-slate-950/80">
         <div className="text-center mb-20">
           <h2 className="title-gradient title-font p-3">Key Features</h2>
-          <p className="mt-6 text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="mt-6 text-md text-slate-300 max-w-2xl mx-auto">
             Discover how GitVerse transforms complex Git concepts into intuitive
             visualizations and guided workflows.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-lg:has-[&>*:nth-child(odd):last-child]:[&>*:last-child]:col-span-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 last-odd-element">
           {features.map((feat, i) => (
             <Feature feature={feat} key={i} />
           ))}

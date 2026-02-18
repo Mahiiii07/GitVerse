@@ -11,12 +11,12 @@ const AboutMe = () => {
             Passionate Developer
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold">
+          <h1 className="title-font font-extrabold">
             Hi, I'm <br />
             <span className="title-gradient ">Mahi Gajjar</span>
           </h1>
 
-          <p className="mt-8 mb-12 text-lg md:text-xl text-slate-300 max-w-xl">
+          <p className="mt-8 mb-12 text-md md:text-xl text-slate-300 max-w-xl">
             I'm a passionate developer with a love for creating innovative
             solutions. With a strong background in web development, I specialize
             in building responsive and user-friendly applications. I thrive on

@@ -19,7 +19,6 @@ const Listing = ({ setIsOpen, groups, activeTopic }) => {
           <ul className="space-y-1 border-l border-gray-800">
             {group?.topics?.map((topic, topicIndex) => (
               <li key={topicIndex}>
-                {/* TODO: common classes */}
                 <button
                   className={`py-0.5 text-base text-left cursor-pointer w-full pl-4 -ml-px border-l ${
                     activeTopic?.name === topic.name

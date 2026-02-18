@@ -53,7 +53,7 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-5 text-base font-bold tracking-wide text-gray-100">
           <div
-            className="w-24 border rounded-xl border-gray-800 flex gap-2 py-1 px-3 cursor-default"
+            className="w-24 cursor-pointer border rounded-xl border-gray-800 flex gap-2 py-1 px-3 "
             onClick={handleButtonClick}
           >
             <SearchIcon height="18" width="18" className="text-gray-400" />

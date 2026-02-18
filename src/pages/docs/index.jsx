@@ -10,9 +10,6 @@ const Index = () => {
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
   const [activeSubTopic, setActiveSubTopic] = useState("");
-  const currentHash = window.location.hash.slice(1);
-  const isValidSubtopic =
-    !currentHash || subtopics.some((sub) => sub.slug === currentHash);
 
   useEffect(() => {
     if (subtopics && subtopics.length > 0) {
@@ -25,23 +22,7 @@ const Index = () => {
   }, [topicSlug, subtopics]);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1);
-      const matchingSubtopic = subtopics?.find(
-        (subtopic) => subtopic.slug === hash,
-      );
-      if (matchingSubtopic) {
-        setActiveSubTopic(hash);
-      }
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [subtopics]);
-
-  useEffect(() => {
     if (activeSubTopic) {
-      window.location.hash = activeSubTopic;
       const element = document.getElementById(activeSubTopic);
       if (element) {
         element.scrollIntoView({ behavior: "instant" });
@@ -49,7 +30,7 @@ const Index = () => {
     }
   }, [activeSubTopic]);
 
-  if (!activeTopic || !isValidSubtopic) {
+  if (!activeTopic) {
     return (
       <main className="max-w-5xl h-screen mx-auto flex items-center justify-center">
         <div className=" flex ">

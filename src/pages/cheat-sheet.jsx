@@ -18,15 +18,15 @@ const CheatSheet = () => {
   return (
     <div className="bg-slate-950 text-white">
       <div className="container mx-auto px-4 md:px-10 lg:px-24  pt-28 pb-24">
-        <h1 className="md:text-6xl text-5xl  font-extrabold mb-4">
-          Git <span className="title-gradient">Cheat Sheet</span>
+        <h1 className="title-font  font-extrabold mb-4">
+          Git <span className="title-gradient ">Cheat Sheet</span>
         </h1>
         <p className="text-slate-400 mb-14 max-w-3xl text-lg">
           Everything you need to remember about Git — laid out like a modern
           developer tool.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 auto-rows-[320px] gap-8 grid-flow-dense">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-8 grid-flow-dense">
           {data?.map((group, index) => {
             const wide =
               index === 0 ||

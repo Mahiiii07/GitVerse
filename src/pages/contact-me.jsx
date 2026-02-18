@@ -141,7 +141,7 @@ const Contactme = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-linear-to-r from-blue-700 to-cyan-400 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 active:scale-95 "
+                  className="w-full bg-linear-to-r cursor-pointer from-blue-700 to-cyan-400 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 active:scale-95 "
                 >
                   Send Message
                 </button>
