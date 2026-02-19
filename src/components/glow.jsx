@@ -1,5 +1,3 @@
-import React from "react";
-
 const Glow = () => {
   return (
     <div className=" rounded-3xl shadow-blue shadow-blue-600  bg-slate-900/80  border border-slate-800 md:p-8 p-6">

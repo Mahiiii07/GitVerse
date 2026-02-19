@@ -6,7 +6,6 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
   const divRefs = useRef([]);
   const observerRef = useRef(null);
   const [copiedStates, setCopiedStates] = useState({});
-  const ignoreObserverRef = useRef(true);
 
   useEffect(() => {
     if (observerRef.current) {
@@ -15,10 +14,6 @@ const Main = ({ activeTopic, setActiveSubTopic }) => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (ignoreObserverRef.current) {
-          ignoreObserverRef.current = false;
-          return;
-        }
         const visibleEntries = entries.filter((entry) => {
           return entry.isIntersecting;
         });

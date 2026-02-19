@@ -11,7 +11,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
         name: topic.name,
         slug: `${topic.slug}#${topic.subtopics?.[0]?.slug || ""}`,
       },
-      ...(topic.subtopics || []).map((subtopic) => ({
+      ...(topic?.subtopics).map((subtopic) => ({
         name: subtopic.title,
         slug: `${topic.slug}#${subtopic.slug}`,
       })),
@@ -43,11 +43,11 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
       onClick={handleButtonClick}
     >
       <div
-        className="lg:w-2xl w-64 h-72 px-4 py-2 gap-2 rounded-lg  bg-gray-800 back text-slate-100"
+        className="lg:w-2xl w-full mx-4 h-72 md:px-2 py-2 gap-8 rounded-lg  bg-gray-800 back text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex text-sm lg:text-base h-8 px-4 py-6 gap-2 items-center border-b border-gray-700">
-          <SearchIcon className={"text-gray-400 "} />
+        <div className="flex text-sm lg:text-base h-8 px-3 py-6 gap-2 items-center border-b border-gray-700">
+          <SearchIcon className={"text-gray-400 h-8 w-8 mt-0.5 "} />
           <input
             type="text"
             onChange={(e) => setSearch(e.target.value)}
@@ -63,7 +63,7 @@ const Search = ({ handleButtonClick, setShowSearch }) => {
             Esc
           </button>
         </div>
-        <div className="h-[calc(100%-3.5rem)] overflow-y-auto scrollbar-ghost p-2 space-y-1">
+        <div className="h-box overflow-y-auto scrollbar-ghost p-2 space-y-1">
           {search.trim() !== "" ? (
             <>
               {getFilteredItems().map((item, i) => (

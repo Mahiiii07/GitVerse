@@ -1,10 +1,8 @@
-//TODO: remove unused imports, correct naming conventions, give meaningfull names
-
-import React, { useEffect, useState } from "react";
-import Main from "./main";
-import Right_sidebar from "../../components/right-sidebar";
-import { useParams } from "react-router-dom";
 import { groups } from "@/data/data";
+import { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import Right_sidebar from "../../components/right-sidebar";
+import Main from "./main";
 
 const Index = () => {
   const { topicSlug } = useParams();
@@ -12,11 +10,12 @@ const Index = () => {
   const activeTopic = allTopics.find((topic) => topic.slug === topicSlug);
   const subtopics = activeTopic ? activeTopic?.subtopics : [];
   const [activeSubTopic, setActiveSubTopic] = useState("");
-  const currentHash = window.location.hash.slice(1);
-  const isValidSubtopic =
-    !currentHash || subtopics.some((sub) => sub.slug === currentHash);
+  const [hash, sethash] = useState("");
 
-  // Set the first subtopic when topic changes
+  useEffect(() => {
+    sethash(window.location.hash);
+  }, []);
+
   useEffect(() => {
     if (subtopics && subtopics.length > 0) {
       const hash = window.location.hash.slice(1);
@@ -28,31 +27,15 @@ const Index = () => {
   }, [topicSlug, subtopics]);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1);
-      const matchingSubtopic = subtopics?.find(
-        (subtopic) => subtopic.slug === hash,
-      );
-      if (matchingSubtopic) {
-        setActiveSubTopic(hash);
-      }
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [subtopics]);
-
-  useEffect(() => {
     if (activeSubTopic) {
-      window.location.hash = activeSubTopic;
       const element = document.getElementById(activeSubTopic);
       if (element) {
         element.scrollIntoView({ behavior: "instant" });
       }
     }
-  }, [activeSubTopic]);
+  }, [hash]);
 
-  if (!activeTopic || !isValidSubtopic) {
+  if (!activeTopic) {
     return (
       <main className="max-w-5xl h-screen mx-auto flex items-center justify-center">
         <div className=" flex ">

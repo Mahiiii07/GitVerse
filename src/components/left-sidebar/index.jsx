@@ -1,10 +1,10 @@
 import Desk from "./desk.jsx";
 import Mobile from "./mobile.jsx";
 
-const Index = () => {
+const LeftSidebarIndex = () => {
   return (
     <div className="flex sticky">
-      <aside className="lg:w-2xs hidden lg:block sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto scrollbar-ghost px-6">
+      <aside className="lg:w-2xs hidden lg:block sticky top-14 h-sidebar overflow-y-auto scrollbar-ghost px-6">
         <Desk />
       </aside>
       <aside className="lg:hidden block">
@@ -14,4 +14,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LeftSidebarIndex;

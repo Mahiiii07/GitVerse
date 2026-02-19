@@ -1,27 +1,22 @@
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
-import { useNavigate } from "react-router-dom";
-import about from "../assets/about.png";
+import about from "@/assets/about.png";
+import { Link } from "react-router-dom";
 
-export default function AboutMe() {
-  const navigate = useNavigate();
+const AboutMe = () => {
   return (
     <div className="bg-slate-950 text-white">
-      <div className="pb-16 pt-16 px-4 md:px-10 lg:px-24 container mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div className="pb-16 pt-32 lg:pt-15 px-4 md:px-10 lg:px-24 container mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-xs tracking-wide mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-blue-500/10 text-xs tracking-wide mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-500"></span>
             Passionate Developer
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold">
+          <h1 className="title-font font-extrabold">
             Hi, I'm <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
-              Mahi Gajjar
-            </span>
+            <span className="title-gradient ">Mahi Gajjar</span>
           </h1>
 
-          <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-xl">
+          <p className="mt-8 mb-12 text-md md:text-xl text-slate-300 max-w-xl">
             I'm a passionate developer with a love for creating innovative
             solutions. With a strong background in web development, I specialize
             in building responsive and user-friendly applications. I thrive on
@@ -29,16 +24,15 @@ export default function AboutMe() {
             my skills. Let's connect and create something amazing together!
           </p>
 
-          <button
-            className="mt-12 px-10 py-5 bg-linear-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/60 hover:-translate-y-1 hover:scale-105 transition-all duration-300 active:scale-95 cursor-pointer"
-            onClick={() => navigate("/")}
-          >
+          <Link className="button-gradient inline-block" to="/">
             View My Work
-          </button>
+          </Link>
         </div>
 
         <img src={about} />
       </div>
     </div>
   );
-}
+};
+
+export default AboutMe;

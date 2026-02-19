@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import email from "../assets/email.png";
-import location from "../assets/location.png";
-import clock from "../assets/clock.png";
-import likedIn from "../assets/linkedin.png";
-import pinterest from "../assets/pinterest.png";
-import github from "../assets/github.png";
-import twitter from "../assets/twitter.png";
 import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import clock from "../assets/clock.png";
+import email from "../assets/email.png";
+import github from "../assets/github.png";
+import likedIn from "../assets/linkedin.png";
+import location from "../assets/location.png";
+import pinterest from "../assets/pinterest.png";
+import twitter from "../assets/twitter.png";
 
 const Contactme = () => {
   const navigate = useNavigate();
@@ -60,9 +58,7 @@ const Contactme = () => {
       <div className="pt-20 pb-12 px-4 lg:px-14 md:px-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-300">
-              Contact Me
-            </h1>
+            <h1 className=" mb-4 title-gradient title-font">Contact Me</h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Have questions about GitVerse? We'd love to hear from you. Send us
               a message and we'll respond as soon as possible.
@@ -145,7 +141,7 @@ const Contactme = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-linear-to-r from-blue-700 to-cyan-400 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 active:scale-95 "
+                  className="w-full bg-linear-to-r cursor-pointer from-blue-700 to-cyan-400 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 active:scale-95 "
                 >
                   Send Message
                 </button>
@@ -202,24 +198,28 @@ const Contactme = () => {
                   <Link
                     to="https://www.linkedin.com/in/mahi-gajjar-0801932a2/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
+                    target="_blank"
                   >
                     <img src={likedIn} alt="linkedin" className="h-6" />
                   </Link>
                   <Link
                     to="https://x.com/MDG0708"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
+                    target="_blank"
                   >
                     <img src={twitter} alt="x" className="h-6" />
                   </Link>
                   <Link
                     to="https://in.pinterest.com/gajjarmahi40/"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
+                    target="_blank"
                   >
                     <img src={pinterest} alt="pinterest" className="h-6" />
                   </Link>
                   <Link
                     to="https://github.com/Mahiiii07"
                     className="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition duration-200"
+                    target="_blank"
                   >
                     <img src={github} alt="github" className="h-6" />
                   </Link>

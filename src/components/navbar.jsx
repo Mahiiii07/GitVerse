@@ -6,7 +6,7 @@ import SearchIcon from "@/assets/search";
 import Search from "./search";
 import { useLocation } from "react-router-dom";
 
-export default function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
@@ -14,7 +14,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = showSearch ? "hidden" : "auto";
-  }, [showSearch]);
+  }, [showSearch, isOpen]);
 
   function handleButtonClick() {
     setShowSearch(!showSearch);
@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <header className="w-full border-b border-gray-800 bg-gray-950 fixed z-50">
-      <div className="mx-auto flex justify-between items-center px-6 py-2">
+      <div className="mx-auto container flex justify-between items-center px-6 py-2">
         <Link
           className="rounded cursor-pointer text-gray-100 px-2 py-1 text-2xl font-bold tracking-wider gap-2 flex"
           to="/"
@@ -53,7 +53,7 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center gap-5 text-base font-bold tracking-wide text-gray-100">
           <div
-            className="w-24 border rounded-xl border-gray-800 flex gap-2 py-1 px-3 cursor-default"
+            className="w-24 cursor-pointer border rounded-xl border-gray-800 flex gap-2 py-1 px-3 "
             onClick={handleButtonClick}
           >
             <SearchIcon height="18" width="18" className="text-gray-400" />
@@ -141,4 +141,6 @@ export default function Navbar() {
       )}
     </header>
   );
-}
+};
+
+export default Navbar;
