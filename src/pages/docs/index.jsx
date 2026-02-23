@@ -18,11 +18,7 @@ const Index = () => {
 
   useEffect(() => {
     if (subtopics && subtopics.length > 0) {
-<<<<<<< HEAD
       const hash = window.location.hash.slice(1);
-=======
-      sethash(window.location.hash);
->>>>>>> 9a3ebdbb02c73979dd2f959fc0eef19d585cdb5d
       const matchingSubtopic = subtopics.find(
         (subtopic) => subtopic.slug === hash,
       );
