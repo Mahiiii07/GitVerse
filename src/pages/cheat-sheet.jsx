@@ -68,11 +68,14 @@ const CheatSheet = () => {
                       key={cmd.slug}
                       className="rounded-xl border border-slate-800 bg-slate-950 p-3 hover:border-blue-500/40 transition"
                     >
-                      <pre className="text-blue-400 text-sm mb-1 overflow-x-auto scrollbar-ghost-1 bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
-                        {cmd.code}
+                      <div className="text-blue-400 text-sm mb-1  bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
+                        <pre className="overflow-x-auto scrollbar-ghost-2 py-1 ">
+                          {cmd.code}
+                        </pre>
+
                         <button
                           onClick={() => copyCode(cmd.code, cmd.slug)}
-                          className="cursor-pointer pl-6"
+                          className="cursor-pointer pl-3"
                         >
                           {copiedStates[cmd.slug] ? (
                             <Tick height="18" width="18" />
@@ -80,7 +83,7 @@ const CheatSheet = () => {
                             <Copy height="18" width="18" />
                           )}
                         </button>
-                      </pre>
+                      </div>
 
                       <p className="text-slate-400 text-sm ">
                         {cmd.description}

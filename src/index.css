@@ -28,6 +28,13 @@
     border-radius: 8px;
   }
 
+  .scrollbar-ghost-2::-webkit-scrollbar {
+    height: 2px !important;
+  }
+  .scrollbar-ghost-2::-webkit-scrollbar-thumb {
+    background-color: rgb(112, 122, 132);
+    border-radius: 8px;
+  }
   .scrollbar-ghost-1::-webkit-scrollbar {
     height: 4px !important;
   }
