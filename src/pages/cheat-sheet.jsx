@@ -1,13 +1,11 @@
-import Navbar from "@/components/navbar";
-import React, { useState } from "react";
-import { data } from "../data/cheatsheet-data";
-import { useNavigate } from "react-router-dom";
-import RightArrow from "../assets/right-arrow";
-import Copy from "../assets/copy";
 import Tick from "@/assets/tick";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Copy from "../assets/copy";
+import RightArrow from "../assets/right-arrow";
+import { data } from "../data/cheatsheet-data";
 
 const CheatSheet = () => {
-  const navigate = useNavigate();
   const [copiedStates, setCopiedStates] = useState({});
 
   function copyCode(code, slug) {
@@ -19,22 +17,17 @@ const CheatSheet = () => {
   }
   return (
     <div className="bg-slate-950 text-white">
-      <Navbar />
-
       <div className="container mx-auto px-4 md:px-10 lg:px-24  pt-28 pb-24">
-        <h1 className="md:text-6xl text-5xl  font-extrabold mb-4">
-          Git{" "}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
-            Cheat Sheet
-          </span>
+        <h1 className="title-font  font-extrabold mb-4">
+          Git <span className="title-gradient ">Cheat Sheet</span>
         </h1>
         <p className="text-slate-400 mb-14 max-w-3xl text-lg">
           Everything you need to remember about Git — laid out like a modern
           developer tool.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 auto-rows-[320px] gap-8 grid-flow-dense">
-          {data.map((group, index) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-8 grid-flow-dense">
+          {data?.map((group, index) => {
             const wide =
               index === 0 ||
               index === 4 ||
@@ -55,29 +48,34 @@ const CheatSheet = () => {
                 `}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <button
+                  <Link
                     className="text-xl font-bold tracking-wide cursor-pointer flex gap-2 items-center hover:gap-3 transition-all  duration-300"
-                    onClick={() => navigate(`/docs/${group.slug}`)}
+                    to={`/docs/${group.slug}`}
                   >
                     {group.title}
                     <RightArrow />
-                  </button>
+                  </Link>
                   <span className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-400">
                     {group.commands.length}
                   </span>
                 </div>
 
-                <div className="space-y-3 overflow-y-auto scrollbar-ghost h-[calc(100%-3.5rem)] pr-1 scrollbar-thin">
-                  {group.commands.map((cmd) => (
+                <div
+                  className={`space-y-3 overflow-y-auto scrollbar-ghost ${tall ? "lg:h-145 h-56" : "h-56"} pr-1 scrollbar-thin`}
+                >
+                  {group?.commands?.map((cmd) => (
                     <div
                       key={cmd.slug}
                       className="rounded-xl border border-slate-800 bg-slate-950 p-3 hover:border-blue-500/40 transition"
                     >
-                      <pre className="text-blue-400 text-sm mb-1 overflow-x-auto scrollbar-ghost-1 bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
-                        {cmd.code}
+                      <div className="text-blue-400 text-sm mb-1  bg-slate-900/70 rounded-lg px-3 py-2 flex justify-between">
+                        <pre className="overflow-x-auto scrollbar-ghost-2 py-1 ">
+                          {cmd.code}
+                        </pre>
+
                         <button
                           onClick={() => copyCode(cmd.code, cmd.slug)}
-                          className="cursor-pointer pl-6"
+                          className="cursor-pointer pl-3"
                         >
                           {copiedStates[cmd.slug] ? (
                             <Tick height="18" width="18" />
@@ -85,7 +83,7 @@ const CheatSheet = () => {
                             <Copy height="18" width="18" />
                           )}
                         </button>
-                      </pre>
+                      </div>
 
                       <p className="text-slate-400 text-sm ">
                         {cmd.description}
